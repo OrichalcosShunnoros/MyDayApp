@@ -1,29 +1,28 @@
-import { useState } from "react";
-import '../../src/css/Header.css';
+import { useState } from 'react';
 
-export const Header = ({ addTD }) => {
-  const [ title, setTitle ] = useState('');
+export const Header = ({ addTodo }) => {
+  const [title, setTitle] = useState('');
 
   const add = (e) => {
     if (e.key === 'Enter') {
-      addTD(title);
+      addTodo(title);
       setTitle('');
     }
-  }
+  };
 
   return (
     <header>
       <h1>My Day</h1>
-      <p>All my tasks in one place</p>
-
-      <input 
-      className="new"
-      value={title}
-      onChange={(e) => setTitle(e.target.value)}
-      onKeyPress={add}
-      placeholder="Type a new task"
-      autoFocus
+      <p>All my tasks in one place.</p>
+      
+      <input
+        className="new"
+        value={ title }
+        onChange={ (e) => setTitle(e.target.value) }
+        onKeyPress={ add }
+        placeholder="Type new todo"
+        autoFocus
       />
     </header>
-  )
-}
+  );
+};

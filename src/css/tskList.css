@@ -1,0 +1,95 @@
+.tdLst {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+.tdLst::-webkit-scrollbar {
+    width: 10px;
+}
+
+.tdLst::-webkit-scrollbar-thumb {
+    background-color: #33333329;
+    border-radius: 10px;
+}
+  
+.tdLst::-webkit-scrollbar-thumb:hover {
+    background-color: #5555555b;
+}
+
+.tdLst li {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ededed;
+    position: relative;
+    padding: 1rem;
+}
+
+.tdLst li input[type="checkbox"] {
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid #bbb;
+    margin-right: 10px;
+    position: relative;
+    outline: none;
+}
+
+.tdLst li input[type="checkbox"]:checked {
+    border-color: #65c466;
+    outline: none;
+
+}
+
+.tdLst li input[type="checkbox"]:checked::before {
+    content: '✔';
+    font-size: 14px;
+    color: #65c466;
+    position: absolute;
+    top: 2px;
+    left: 4px;
+}
+
+.tdLst li label {
+    flex: 1;
+    font-size: 18px;
+    word-break: break-word;
+}
+
+.tdLst li.completed label {
+    color: #b0b0b0;
+    text-decoration: line-through;
+}
+
+.tdLst li .edit {
+    flex: 1;
+    font-size: 18px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-left: 10px;
+    outline: none;
+}
+
+.tdLst li .destroy {
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border: none;
+    color: #cc9a9a;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.tdLst li:hover .destroy {
+    visibility: visible;
+}
