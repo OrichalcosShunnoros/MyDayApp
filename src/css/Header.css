@@ -30,3 +30,18 @@ header {
         font-style: italic;
     }
 }
+
+.search {
+    width: 31rem;
+    padding: 16px 12px;
+    border: none;
+    font-size: 16px;
+    box-shadow: inset 0 -2px 1px #0000003c;
+    border-radius: 4px;
+    outline: none;
+
+    &::placeholder {
+        color: #c3c3c3;
+        font-style: italic;
+    }
+}

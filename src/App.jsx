@@ -7,12 +7,16 @@ const LOCAL_STORAGE_KEY = 'mydayapp-reactjs';
 
 export const App = () => {
   const [todos, setTodos] = useState([]);
+  const [filteredTodos, setFilteredTodos] = useState([]);
   const [filter, setFilter] = useState('all');
 
   useEffect(() => {
     const storedTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
 
-    if (storedTodos) setTodos(storedTodos);
+    if (storedTodos) {
+      setTodos(storedTodos);
+      setFilteredTodos(storedTodos);
+    }
   }, []);
 
   useEffect(() => {
@@ -23,13 +27,16 @@ export const App = () => {
     if (title.trim() === '') return;
     const newTodo = { id: Date.now().toString(), title: title.trim(), completed: false };
 
-    setTodos([...todos, newTodo]);
+    const updatedTodos = [...todos, newTodo];
+    setTodos(updatedTodos);
+    setFilteredTodos(updatedTodos);
   };
 
   const toggleTodo = (id) => {
     const updatedTodos = todos.map((todo) => todo.id === id ? { ...todo, completed: !todo.completed } : todo);
 
     setTodos(updatedTodos);
+    setFilteredTodos(updatedTodos);
   };
 
   const editTodo = (id, newTitle) => {
@@ -37,35 +44,31 @@ export const App = () => {
 
     const updatedTodos = todos.map((todo) => todo.id === id ? { ...todo, title: newTitle.trim() } : todo);
     setTodos(updatedTodos);
+    setFilteredTodos(updatedTodos);
   };
 
   const deleteTodo = (id) => {
     const updatedTodos = todos.filter((todo) => todo.id !== id);
 
     setTodos(updatedTodos);
+    setFilteredTodos(updatedTodos);
   };
 
   const clearCompleted = () => {
     const updatedTodos = todos.filter((todo) => !todo.completed);
 
     setTodos(updatedTodos);
+    setFilteredTodos(updatedTodos);
   };
-
-  const filteredTodos = todos.filter((todo) => {
-    if (filter === 'all') return true;
-    if (filter === 'pending') return !todo.completed;
-    if (filter === 'completed') return todo.completed;
-  });
 
   const pendingCount = todos.filter((todo) => !todo.completed).length;
 
   return (
     <>
-      <Header addTodo={addTodo} />
+      <Header addTodo={addTodo} todos={todos} setFilteredTodos={setFilteredTodos} />
 
       {todos.length > 0 && (
         <div className="content">
-
           <TskList
             todos={filteredTodos}
             toggleTodo={toggleTodo}
@@ -79,9 +82,8 @@ export const App = () => {
             setFilter={setFilter}
             currentFilter={filter}
           />
-          
         </div>
       )}
     </>
   );
-}
+};
