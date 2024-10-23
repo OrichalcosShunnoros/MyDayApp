@@ -1,0 +1,48 @@
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    
+    span {
+        margin-top: .3rem;
+        font-size: 14px;
+    }
+}
+
+.fltrs {
+    display: flex;
+    gap: 10px;
+}
+
+.fltrs > li {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.fltrs button {
+    background-color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.fltrs button.selected {
+    border-color: #000;
+}
+
+.clrCmpltd {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.clrCmpltd:hover {
+    text-decoration: none;
+}
+
