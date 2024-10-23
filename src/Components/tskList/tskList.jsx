@@ -51,7 +51,6 @@ export const TskList = ({ todos, toggleTodo, editTodo, deleteTodo }) => {
           )}
         </li>
       ))}
-
     </ul>
   );
 };
