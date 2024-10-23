@@ -12,45 +12,12 @@ body {
   flex-direction: column;
   align-items: center;
   margin-top: 16.5%;
-}
 
-.content{
-  max-width: 500px;
-  background-color: transparent;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0px 2px 1px 1px #c3c3c3;
-}
-
-header {
-  color: #fff;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-header h1 {
-  text-align: left;
-  font-size: 45px;
-  margin-bottom: 5px;
-}
-
-header p {
-  text-align: left;
-  font-size: 14px;
-  margin-bottom: .5rem;
-}
-
-.new {
-  width: 100%;
-  padding: 16px 12px;
-  border: none;
-  font-size: 16px;
-  box-shadow: inset 0 -2px 1px #00000008;
-  border-radius: 4px;
-  outline: none;
-}
-
-.new::placeholder {
-  color: #c3c3c3;
-  font-style: italic;
+  .content {
+      max-width: 500px;
+      background-color: transparent;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0px 2px 1px 1px #c3c3c3;
+  }
 }

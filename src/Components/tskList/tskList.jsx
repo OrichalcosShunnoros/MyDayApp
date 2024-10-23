@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import '../../src/css/tskList.css';
+import '../../css/tskList.css';
 
 export const TskList = ({ todos, toggleTodo, editTodo, deleteTodo }) => {
   const [editingId, setEditingId] = useState(null);
@@ -29,8 +29,10 @@ export const TskList = ({ todos, toggleTodo, editTodo, deleteTodo }) => {
 
   return (
     <ul className="tdLst">
+
       {filteredTodos.map((todo) => (
         <li key={todo.id} className={todo.completed ? 'completed' : ''}>
+
           {editingId === todo.id ? (
             <input
               className="edit"
@@ -41,17 +43,15 @@ export const TskList = ({ todos, toggleTodo, editTodo, deleteTodo }) => {
             />
           ) : (
             <>
-              <input
-                type="checkbox"
-                checked={todo.completed}
-                onChange={() => toggleTodo(todo.id)}
-              />
+              <input type="checkbox" checked={todo.completed} onChange={() => toggleTodo(todo.id)} />
+
               <label onDoubleClick={() => editFunction(todo.id, todo.title)}>{todo.title}</label>
               <button className="destroy" onClick={() => deleteTodo(todo.id)}>❌</button>
             </>
           )}
         </li>
       ))}
+
     </ul>
   );
 };

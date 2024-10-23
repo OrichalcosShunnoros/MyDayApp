@@ -1,5 +1,5 @@
-import '../../src/css/Footer.css';
 import { NavLink } from 'react-router-dom';
+import '../../css/Footer.css';
 
 export const Footer = ({ pendingCount, clearCompleted }) => {
   return (

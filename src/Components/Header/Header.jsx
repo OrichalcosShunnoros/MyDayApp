@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import '../../css/Header.css'
 
 export const Header = ({ addTodo }) => {
   const [title, setTitle] = useState('');
@@ -13,7 +14,7 @@ export const Header = ({ addTodo }) => {
   return (
     <header>
       <h1>My Day</h1>
-      <p>All my tasks in one place.</p>
+      <p>All my tasks in one place</p>
       
       <input
         className="new"
